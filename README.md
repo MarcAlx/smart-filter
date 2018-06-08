@@ -45,6 +45,10 @@ You can filter/test object using the following syntax : (assuming `propA` and `p
 
     propA >= 4
 
+    1=1 //means keep all
+
+    1!=1 //means keep none
+
 You can also write operator like this :
 
     = -> ==
@@ -131,7 +135,7 @@ Before pushing any pull request you must ensure the following points :
 
 ## About
 
-Created by Marc-Alx for [Smart/Origin](https://github.com/smartorigin)
+Created by [MarcAlx](https://github.com/MarcAlx) for [Smart/Origin](https://github.com/smartorigin)
 
 ## Usefull links
 

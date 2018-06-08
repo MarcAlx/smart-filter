@@ -107,13 +107,13 @@ function check(item,node){
             }
         }
         case "BinaryExpression":{
-            let id = null,lit=null,id2id=false;
+            let id = null,lit=null;
             //1. determine Identifier part (Identifier) and value part (Literal or ArrayExpression))
-
             if(node.left.type==="Identifier" && node.right.type==="Identifier"){
-                id=node.left;
-                lit=node.right;
-                id2id=true;
+                return evalAttrAgainstAttr(item,node,node.left,node.right);
+            }
+            else if(node.left.type==="Literal" && node.right.type==="Literal"){
+                return evalLiteralValueAgainstLiteralValue(item,node,node.left,node.right);
             }
             else if(node.left.type==="Identifier" && node.right.type==="Literal"){
                 id=node.left;
@@ -134,23 +134,8 @@ function check(item,node){
             else{
                 throw `Unsupported node combo :  ${node.right.type} and ${node.left.type}`;
             }
-
-            //item doesn't have field -> return false
-            if(!item[id.name]){
-                return false;
-            }
-
-            //compare attribute
-            if(id2id){
-                if(!item[lit.name]){
-                    return false;
-                }
-                return evalAttrAgainstAttr(item,node,id,lit);
-            }
             //check attribute value
-            else{
-                return evalAttrAgainstLiteralValue(item,node,id,lit);
-            }
+            return evalAttrAgainstLiteralValue(item,node,id,lit);
         }
         default:
             throw "Unsupported expression";
@@ -168,6 +153,10 @@ function check(item,node){
  * @return {boolean}
  */
 function evalAttrAgainstAttr(item,node,id,id2){
+    //pre-condition
+    if(!item[id.name] || !item[id2.name]){
+        return false;
+    }
     switch(node.operator){
         case "==":
             return item[id.name]===item[id2.name];
@@ -195,6 +184,10 @@ function evalAttrAgainstAttr(item,node,id,id2){
  * @return {boolean}
  */
 function evalAttrAgainstLiteralValue(item,node,id,lit){
+    //pre-condition
+    if(!item[id.name]){
+        return false;
+    }
     switch(node.operator){
         case "==":
             return item[id.name]===lit.value;
@@ -214,6 +207,33 @@ function evalAttrAgainstLiteralValue(item,node,id,lit){
         case "notin":
             //check if there's no value in array that match item
             return lit.elements.find(tmp => (item[id.name] && tmp.type==="Literal" && item[id.name]===tmp.value)) === undefined;
+        default:
+            return false;
+    }
+}
+
+/**
+ * Eval literal agains literal
+ * @param {*} item 
+ * @param {*} node 
+ * @param {*} id 
+ * @param {*} lit 
+ * @return {boolean}
+ */
+function evalLiteralValueAgainstLiteralValue(item,node,lit1,lit2){
+    switch(node.operator){
+        case "==":
+            return lit1.value===lit2.value;
+        case "<=":
+            return lit1.value<=lit2.value;
+        case ">=":
+            return lit1.value>=lit2.value;
+        case "<":
+            return lit1.value<lit2.value;
+        case ">":
+            return lit1.value>lit2.value;
+        case "!=":
+            return lit1.value!==lit2.value;
         default:
             return false;
     }

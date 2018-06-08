@@ -50,6 +50,49 @@ describe('Simple comparison', () => {
     });
 });
 
+describe('Literal comparison', () => {
+    let input = {};
+    it('Number equality', function () {
+        assert(test(input,'1=1'),true);
+    });
+
+    it('Number inequality', function () {
+        assert(test(input,'1!=3'),true);
+    });
+
+    it('Number comparison 1', function () {
+        assert(test(input,'1 < 3'),true);
+    });
+
+    it('Number comparison 2', function () {
+        assert(test(input,'2 > 1'),true);
+    });
+
+    it('Number comparison 3', function () {
+        assert(test(input,'2 <= 3'),true);
+    });
+
+    it('Number comparison 4', function () {
+        assert(test(input,'4 >= 1'),true);
+    });
+    
+    it('String equality', function () {
+        assert(test(input,'"OK" == "OK"'),true);
+    });
+
+    it('String inequality', function () {
+        assert(test(input,'"OK" != "KO"'),true);
+    });
+
+    it('Boolean equality', function () {
+        assert(test(input,'true == true'),true);
+    });
+
+    it('Boolean inequality', function () {
+        assert(test(input,'true != false'),true);
+    });
+});
+
 describe('Attribute comparison', () => {
     let input = {
         "propA":2,
