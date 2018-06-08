@@ -1,10 +1,13 @@
-# smart-filter
+# @smartorigin/smart-filter
+
+[![npm version](https://badge.fury.io/js/%40smartorigin%2Fsmart-filter.svg)](https://badge.fury.io/js/%40smartorigin%2Fsmart-filter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A module that allows smart filtering over js array using SQL-Like where clause.
 
 ## Getting started
 
-    npm install smart-filter
+    npm install @smartorigin/smart-filter
 
 ## Usage
 
@@ -57,7 +60,7 @@ _see also /test/index.js_
 
 First import exposed functions :
 
-    import {filter,test} from 'smart-filter'
+    import {filter,test} from '@smartorigin/smart-filter'
 
 **function test(obj,expr)**
 
@@ -105,11 +108,11 @@ First import exposed functions :
 
 For non ES6 env just require module
 
-    var smartfilter = require("smart-filter");
+    var smartfilter = require("@smartorigin/smart-filter");
 
     let input = {"a":"ok"};
 
-    smartfilter.test(input,'a="oki"'); // returns true
+    smartfilter.test(input,'a="ok"'); // returns true
 
     let arr = [{"a":"1"},{"a":"2"}];
     
