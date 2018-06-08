@@ -1,6 +1,6 @@
 # smart-filter
 
-An module that allows smart filtering over js array using SQL-Like where clause.
+A module that allows smart filtering over js array using SQL-Like where clause.
 
 ## Getting started
 

@@ -7,7 +7,7 @@
     "sql-like-whereclause",
     "jsarray"
   ],
-  "description": "An module that allows smart filtering over js array using SQL-Like where clause.",
+  "description": "A module that allows smart filtering over js array using SQL-Like where clause.",
   "scripts": {
     "build": "BABEL_ENV=development node_modules/babel-cli/bin/babel.js src --out-dir lib",
     "test": "mocha --compilers js:babel-core/register test/index.js",
@@ -22,7 +22,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/smartorigin/smart-filter"
   },
   "contributors": [
     {
