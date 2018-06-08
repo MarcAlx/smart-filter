@@ -17,7 +17,7 @@ With smart-filter you can test if an object match an SLQ-Like where clause.
 
 It could be used to expose to end user an high level language and to easily process end user expressions in JS.
 
-You can filter/test object using the following syntax : (assuming propA and propB are properties of a js object)
+You can filter/test object using the following syntax : (assuming `propA` and `propB` are properties of a js object)
 
     propA = 1
 
@@ -50,6 +50,7 @@ You can also write operator like this :
     = -> ==
     AND -> && 
     OR -> ||
+    <> -> !=
 
 This module is build using [JSEP](http://jsep.from.so).
 
