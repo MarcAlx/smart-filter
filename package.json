@@ -1,0 +1,47 @@
+{
+  "name": "smart-filter",
+  "version": "1.0.0",
+  "private": false,
+  "keywords": [
+    "filtering",
+    "sql-like-whereclause",
+    "jsarray"
+  ],
+  "description": "An module that allows smart filtering over js array using SQL-Like where clause.",
+  "scripts": {
+    "build": "BABEL_ENV=development node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "test": "mocha --compilers js:babel-core/register test/index.js",
+    "build-prod": "BABEL_ENV=production node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "prepublish": "npm run test && npm run build-prod"
+  },
+  "author": {
+    "name": "Smart/Origin",
+    "email": "contact@smart-origin.com",
+    "url": "https://smart-origin.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "contributors": [
+    {
+      "name": "Marc-Alx",
+      "email": "marc-alx@outlook.com",
+      "url": "https://github.com/MarcAlx"
+    }
+  ],
+  "main": "lib/index.js",
+  "dependencies": {
+    "jsep": "^0.3.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-minify": "^0.4.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-minify": "^0.4.3",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
