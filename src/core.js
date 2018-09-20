@@ -140,8 +140,6 @@ function check(item,node){
         default:
             throw "Unsupported expression";
     }
-
-    return true;
 }
 
 /**
