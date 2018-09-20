@@ -25,6 +25,8 @@ You can filter/test object using the following syntax : (assuming `propA` and `p
 
     propA = true
 
+    propA = 'Hello'
+    
     propA = "Hello" OR propA = "Hi"
 
     propA = "Hello" AND propA = "Hi"

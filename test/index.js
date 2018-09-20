@@ -123,6 +123,14 @@ describe('Attribute comparison', () => {
         assert(test(input,'propB == propB'),true);
     });
 
+    it('Single quote equality', function () {
+        assert(test(input,"propB == 'OK'"),true);
+    });
+
+    it('Single quote inequality', function () {
+        assert(test(input,"propF != 'OK'"),true);
+    });
+
     it('String inequality', function () {
         assert(test(input,'propB != propF'),true);
     });
