@@ -100,7 +100,8 @@ describe('Attribute comparison', () => {
         "propC":true,
         "propD":4,
         "propE":false,
-        "propF":"KO"
+        "propF":"KO",
+        "propG":null
     }
 
     it('equality', function () {
@@ -121,6 +122,14 @@ describe('Attribute comparison', () => {
 
     it('String equality', function () {
         assert(test(input,'propB == propB'),true);
+    });
+
+    it('Null comparison', function () {
+        assert(test(input,'propG == null'),true);
+    });
+
+    it('Not Null comparison', function () {
+        assert(test(input,'propF != null'),true);
     });
 
     it('Single quote equality', function () {

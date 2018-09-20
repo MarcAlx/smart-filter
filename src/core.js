@@ -152,7 +152,7 @@ function check(item,node){
  */
 function evalAttrAgainstAttr(item,node,id,id2){
     //pre-condition
-    if(!item[id.name] || !item[id2.name]){
+    if(!item.hasOwnProperty(id.name) || !item.hasOwnProperty(id2.name)){
         return false;
     }
     switch(node.operator){
@@ -183,7 +183,7 @@ function evalAttrAgainstAttr(item,node,id,id2){
  */
 function evalAttrAgainstLiteralValue(item,node,id,lit){
     //pre-condition
-    if(!item[id.name]){
+    if(!item.hasOwnProperty(id.name)){
         return false;
     }
     switch(node.operator){
